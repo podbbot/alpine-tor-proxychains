@@ -13,7 +13,7 @@ Simple bundle (Tor + proxychains-ng + nyx) to wrap your docker container traffic
 After that you will get `/bin/bash` into your alpine container. 
   
 ## Running applications through Tor
-If you want to put your application's traffic from the second container (`chains/tor_chains`) through the first one (`proxy/tor_proxy`, with Tor), you need to use `proxychains` command as a prefix, e.g.: 
+If you want to send your application's traffic from the second container (`chains/tor_chains`) through the first one (`proxy/tor_proxy`, with Tor), you need to use `proxychains` command as a prefix, e.g.: 
 1. `proxychains curl ifconfig.me`
 2. `proxychains nmap ...`
 
