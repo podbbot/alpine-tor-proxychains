@@ -2,11 +2,16 @@ FROM alpine:edge
 
 RUN apk update && \ 
     apk upgrade && \ 
-    apk add tor python2 py-pip --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ && \
+    apk add tor python2 py-pip iptables --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ && \
     pip --no-cache-dir install nyx
 
 EXPOSE 9050
+
 COPY torrc.default /etc/tor/torrc.default
-RUN chown -R tor /etc/tor
+COPY iptables_rules.sh /iptables_rules.sh
+COPY bootstrapping.sh /bootstrapping.sh
+
+RUN chmod +x iptables_rules.sh && chown -R tor /etc/tor
+
 USER tor
-ENTRYPOINT [ "tor", "-f", "/etc/tor/torrc.default" ]
+ENTRYPOINT [ "/bin/sh" ]
