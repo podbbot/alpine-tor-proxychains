@@ -4,7 +4,7 @@ set -e
 
 touch /tmp/tor.launching
 
-echo "launching TOR ..."
+echo "Launching Tor ..."
 tor -f /etc/tor/torrc.default > /tmp/tor.launching 2>&1 &
 
 exec 6>&-

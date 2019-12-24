@@ -10,8 +10,11 @@ EXPOSE 9050
 COPY torrc.default /etc/tor/torrc.default
 COPY iptables_rules.sh /iptables_rules.sh
 COPY bootstrapping.sh /bootstrapping.sh
+COPY nyxrc.conf /var/lib/tor/.nyx/config
 
-RUN chmod +x iptables_rules.sh && chown -R tor /etc/tor
+RUN chmod +x iptables_rules.sh && \
+    chmod +x bootstrapping.sh && \
+    chown -R tor /etc/tor
 
 USER tor
 ENTRYPOINT [ "/bin/sh" ]
