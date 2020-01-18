@@ -2,7 +2,7 @@
 
 set -e
 
-mkdir shared
+mkdir -p shared
 
 docker run \
 --rm \

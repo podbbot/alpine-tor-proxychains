@@ -7,13 +7,13 @@ RUN apk update && \
 
 EXPOSE 9050
 
-COPY torrc.default /etc/tor/torrc.default
-COPY iptables_rules.sh /iptables_rules.sh
-COPY bootstrapping.sh /bootstrapping.sh
-COPY nyxrc.conf /var/lib/tor/.nyx/config
+COPY torrc/torrc.default /etc/tor/torrc.default
+COPY config/iptables_rules.sh config/iptables_rules.sh
+COPY config/nyxrc.conf /var/lib/tor/.nyx/config
+COPY launch/ /launch
 
-RUN chmod +x iptables_rules.sh && \
-    chmod +x bootstrapping.sh && \
+RUN chmod +x config/iptables_rules.sh && \
+    chmod +x launch/tor_default.sh && \
     chown -R tor /etc/tor
 
 USER tor

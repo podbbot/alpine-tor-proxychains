@@ -1,6 +1,5 @@
 *
 .*
-!iptables_rules.sh
-!torrc.default
-!bootstrapping.sh
-!nyxrc.conf
+!torrc/
+!config/
+!launch/
