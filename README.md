@@ -5,7 +5,13 @@
 :bust_in_silhouette: Simple bundle (Tor + iptables + proxychains + nyx monitor) to wrap your docker container traffic into another container running Tor.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/manmolecular/alpine-tor-proxychains/docker_compose/assets/tor-logo.png?raw=true">
+  <img src="https://raw.githubusercontent.com/manmolecular/alpine-tor-proxychains/master/assets/tor-logo.png?raw=true">
+</p>  
+
+## Screenshot
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/manmolecular/alpine-tor-proxychains/master/assets/screenshot.jpg?raw=true">
 </p>  
 
 ## Requirements
