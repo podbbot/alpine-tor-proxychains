@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  torproxy:
+    build: .
+    image: proxy/torproxy:1.0
+    container_name: torproxy
+    ports:
+      - "9050:9050"
+    dns:
+      - 8.8.8.8
+      - 9.9.4.4
+      - 1.1.1.1
+      - 1.0.0.1

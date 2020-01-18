@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  torchains:
+    build: .
+    image: chains/torchains:1.0
+    container_name: torchains
+    network_mode: "container:torproxy"
+    volumes:
+      - ./shared:/shared
+volumes:
+  shared:

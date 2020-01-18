@@ -10,11 +10,9 @@ EXPOSE 9050
 COPY torrc/torrc.default /etc/tor/torrc.default
 COPY config/iptables_rules.sh config/iptables_rules.sh
 COPY config/nyxrc.conf /var/lib/tor/.nyx/config
-COPY launch/ /launch
 
 RUN chmod +x config/iptables_rules.sh && \
-    chmod +x launch/tor_default.sh && \
     chown -R tor /etc/tor
 
 USER tor
-ENTRYPOINT [ "/bin/sh" ]
+ENTRYPOINT [ "tor", "-f", "/etc/tor/torrc.default" ]
