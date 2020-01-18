@@ -11,7 +11,7 @@
 ## Screenshot
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/manmolecular/alpine-tor-proxychains/master/assets/screenshot.jpg?raw=true">
+  <img src="https://raw.githubusercontent.com/manmolecular/alpine-tor-proxychains/master/assets/screenshot.jpg">
 </p>  
 
 ## Requirements
