@@ -21,7 +21,7 @@
 ## Components
 Main container (proxy, image: `proxy/torproxy:1.0`):  
 - tor with socks5 on port `9050` (for different stuff like proxychains, burp suite, etc.)  
-- iptables with a custom set of rules (to block non-tor traffic, see: Blocking all local outbound non-Tor traffic with iptables)  
+- iptables with a custom set of rules (to block non-tor traffic, see: [Blocking all local outbound non-Tor traffic with iptables](https://trac.torproject.org/projects/tor/wiki/doc/BlockingNonTorTraffic))  
 - privoxy on port `8118` (for HTTP connections - browsers, curl, etc.)  
 - nyx monitor (to get a new identity, monitor traffic, etc.)  
   
