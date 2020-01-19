@@ -1,18 +1,26 @@
 FROM alpine:edge
 
+LABEL org.label-schema.name="torproxy" \
+      org.label-schema.description="Tor proxy (SOCKS5 plus Privoxy HTTP)" \
+      org.label-schema.license="GPL-2.0"
+
 RUN apk update && \ 
     apk upgrade && \ 
-    apk add tor python2 py-pip iptables --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ && \
+    apk add tor python2 py-pip iptables privoxy --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ && \
     pip --no-cache-dir install nyx
 
-EXPOSE 9050
+EXPOSE 9050 8118
 
-COPY torrc/torrc.default /etc/tor/torrc.default
-COPY config/iptables_rules.sh config/iptables_rules.sh
-COPY config/nyxrc.conf /var/lib/tor/.nyx/config
+COPY config/torrc/torrc.default /etc/tor/torrc.default
+COPY config/iptables/rules.sh config/iptables_rules.sh
+COPY config/nyx/nyxrc.conf /var/lib/tor/.nyx/config
+COPY config/privoxy/privoxy.conf /etc/privoxy/config
+COPY config/entrypoint.sh entrypoint.sh
 
 RUN chmod +x config/iptables_rules.sh && \
-    chown -R tor /etc/tor
+    chmod +x entrypoint.sh && \
+    chown -R tor /etc/tor && \
+    chown -R tor /etc/privoxy
 
 USER tor
-ENTRYPOINT [ "tor", "-f", "/etc/tor/torrc.default" ]
+ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
