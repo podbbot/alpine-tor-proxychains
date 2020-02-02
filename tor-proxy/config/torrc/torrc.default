@@ -250,3 +250,6 @@ CookieAuthentication 1
 #%include /etc/torrc.d/
 #%include /etc/torrc.custom
 
+## Exclude internet-blocking countries
+ExcludeExitNodes {ru},{by},{cn},{kz}
+StrictNodes 1

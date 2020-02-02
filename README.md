@@ -24,6 +24,7 @@ Main container (proxy, image: `proxy/torproxy:1.0`):
 - iptables with a custom set of rules (to block non-tor traffic, see: [Blocking all local outbound non-Tor traffic with iptables](https://trac.torproject.org/projects/tor/wiki/doc/BlockingNonTorTraffic))  
 - privoxy on port `8118` (for HTTP connections - browsers, curl, etc.)  
 - nyx monitor (to get a new identity, monitor traffic, etc.)  
+- torrc configuration that excludes the choice of exit nodes from China, Russia, Belarus and Kazakhstan (countries with partial or complete blocking of the Internet)
   
 Additional container (routed with proxychains, image: `chains/torchains:1.0`):  
 - `/bin/bash` through proxychains
