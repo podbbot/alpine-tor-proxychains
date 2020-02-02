@@ -5,9 +5,10 @@ LABEL org.label-schema.name="torproxy" \
       org.label-schema.license="GPL-2.0"
 
 RUN apk update && \ 
-    apk upgrade && \ 
+    apk upgrade && \
     apk add tor python2 py-pip iptables privoxy --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ && \
-    pip --no-cache-dir install nyx
+    pip --no-cache-dir install nyx && \
+    rm -rf /etc/apk/cache
 
 EXPOSE 9050 8118
 
