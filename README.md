@@ -32,21 +32,36 @@ Additional container (routed with proxychains, image: `chains/torchains:1.0`):
 
 
 ## Installation
-Build and run proxy
+### Build and run proxy
 ```
 cd tor-proxy
 chmod +x run.sh
 ./run.sh
 ```
-Run nyx monitor (with running proxy)
+Or
+```
+cd tor-proxy
+make up
+```
+### Run nyx monitor (with running proxy)
 ```
 cd tor-proxy
 chmod +x monitor.sh
 ./run.sh
 ```
-Build and run additional container with proxychains
+Or
+```
+cd tor-proxy
+make monitor
+```
+### Build and run additional container with proxychains
 ```
 cd proxychains
 chmod +x run.sh
 ./run.sh
+```
+Or
+```
+cd proxychains
+make up
 ```

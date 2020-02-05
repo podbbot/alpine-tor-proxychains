@@ -5,7 +5,6 @@ LABEL org.label-schema.name="torchains" \
       org.label-schema.license="GPL-2.0"
 
 RUN apk update && \
-    apk upgrade && \
     apk add --no-cache proxychains-ng bash curl nmap nmap-nselibs nmap-scripts openssh && \
     rm -rf /etc/apk/cache
 
