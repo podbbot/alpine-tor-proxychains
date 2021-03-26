@@ -9,7 +9,7 @@ RUN apk update && \
     pip --no-cache-dir install nyx && \
     rm -rf /etc/apk/cache
 
-EXPOSE 9050 8118
+EXPOSE 9050 9051 8118
 
 COPY config/torrc/torrc.default /etc/tor/torrc.default
 COPY config/iptables/rules.sh config/iptables_rules.sh

@@ -7,4 +7,4 @@ cd /etc/privoxy
 privoxy
 
 # Run tor
-tor -f /etc/tor/torrc.default
+tor -f /etc/tor/torrc.default --controlport 9051

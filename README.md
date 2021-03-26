@@ -21,8 +21,9 @@
 ## Components
 Main container (proxy, image: `proxy/torproxy:1.0`):  
 - tor with socks5 on port `9050` (for different stuff like proxychains, burp suite, etc.)  
-- iptables with a custom set of rules (to block non-tor traffic, see: [Blocking all local outbound non-Tor traffic with iptables](https://trac.torproject.org/projects/tor/wiki/doc/BlockingNonTorTraffic))  
+- controller on port `9051` (for hot configs and hacking stuff, password is `cookiemonster` by default)
 - privoxy on port `8118` (for HTTP connections - browsers, curl, etc.)  
+- iptables with a custom set of rules (to block non-tor traffic, see: [Blocking all local outbound non-Tor traffic with iptables](https://trac.torproject.org/projects/tor/wiki/doc/BlockingNonTorTraffic))  
 - nyx monitor (to get a new identity, monitor traffic, etc.)  
 - torrc configuration that excludes the choice of exit nodes from China, Russia, Belarus and Kazakhstan (countries with partial or complete blocking of the Internet)
   
